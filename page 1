@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintEz - Print Order</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <!-- Header with PrintEz and navigation links -->
+    <header>
+        <div class="header-text">
+            <h1>PrintEz</h1>
+            <div class="sub-links">
+                <a href="#">Home</a>
+                <a href="orders.html">Orders</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Container for the main form content -->
+    <div class="container">
+        <h2>Order Your Print</h2>
+        <form action="page2.html" method="post">
+            <h3>Upload PDF:</h3>
+            <input type="file" name="pdfUpload" accept=".pdf" required>
+
+            <h3>Number of Copies:</h3>
+            <input type="number" name="copies" min="1" required>
+
+            <h3>Print Type:</h3>
+            <select name="printType" required>
+                <option value="black-and-white">Black and White</option>
+                <option value="color">Color</option>
+            </select>
+
+            <h3>Choose Printer Shop:</h3>
+            <select name="printerShop" required>
+                <option value="1">Printer Shop 1</option>
+                <option value="2">Printer Shop 2</option>
+                <option value="3">Printer Shop 3</option>
+                <option value="4">Printer Shop 4</option>
+            </select>
+
+            <h3>Binding Options:</h3>
+            <select name="binding">
+                <option value="none">No Binding</option>
+                <option value="spiral">Spiral Binding</option>
+            </select>
+
+            <h3>Pickup Time:</h3>
+            <input type="time" name="pickupTime" required>
+
+            <button type="submit">Checkout</button>
+        </form>
+    </div>
+
+</body>
+</html>
