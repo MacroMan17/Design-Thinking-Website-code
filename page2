@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="header">
+        <span>PrintEz</span>
+        <nav>
+            <a href="page1.html">Home</a>
+            <a href="orders.html">Orders</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+    
+    <div class="main-container">
+        <h2>Payment Page</h2>
+        <form action="page3.html" method="POST"> <!-- Changed action to page3.html -->
+            <div class="payment-details">
+                <h3>Total Amount: <span id="totalAmount">₹15</span></h3>
+               
+            </div>
+            <div class="payment-method">
+                <label for="paymentMethod">Select Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod">
+                    <option value="upi" selected>UPI</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="net-banking">Net Banking</option>
+                </select>
+            </div>
+            <div id="qrCodeContainer">
+                <p>Scan the UPI QR Code to Pay:</p>
+                <img src="qrcode.jpg" alt="UPI QR Code" id="upiQRCode">
+            </div>
+            <div class="redeem-points">
+                <label for="redeemPoints">
+                    <input type="checkbox" id="redeemPoints" onclick="redeemPoints()"> Redeem your 10 PrintEz points (₹10 discount)
+                </label>
+                <p id="grandTotal">Grand Total: ₹<span id="finalTotal">15</span></p>
+            </div>
+            <div class="checkout-button">
+                <button type="submit">Proceed to Checkout</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function generateAmount() {
+            const amount = Math.floor(Math.random() * (50 - 15 + 1)) + 15;
+            document.getElementById('totalAmount').textContent = ₹${amount};
+            document.getElementById('finalTotal').textContent = amount;
+        }
+
+        function redeemPoints() {
+            const discount = document.getElementById('redeemPoints').checked ? 10 : 0;
+            const totalAmount = parseInt(document.getElementById('totalAmount').textContent.replace('₹', ''));
+            const finalAmount = totalAmount - discount;
+            document.getElementById('finalTotal').textContent = finalAmount;
+        }
+    </script>
+
+</body>
+</html>
